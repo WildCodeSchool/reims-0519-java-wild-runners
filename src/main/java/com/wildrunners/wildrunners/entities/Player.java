@@ -2,8 +2,8 @@ package com.wildrunners.wildrunners.entities;
 
 public class Player {
 
-    private String player1;
-    private String player2;
+    private String player1 = "Julien";
+    private String player2 = "Sebastien";
 
     public Player(String player1, String player2) {
         this.setPlayer1(player1);

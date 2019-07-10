@@ -10,15 +10,15 @@ body {
     align-items: flex-end;
     justify-content: space-around;
     font-size: 400%;
-    margin-bottom: 10%;
-    margin-top: 2%;
+    padding-top: 2%;
+    margin-bottom: 5%;
     font-family: 'Carter One', cursive;
 }
 
 .history {
     display: flex;
     align-items: flex-end;
-    height: 20%;
+    height: 30%;
     justify-content: space-around;
     font-size: 150%;
     font-family: 'Carter One', cursive;
@@ -37,6 +37,12 @@ body {
     justify-content: space-evenly;
 }
 
+.col-2 { 
+    padding: 5%; 
+}
+
+/* Glowing Button */
+
 .btn {
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -51,30 +57,31 @@ body {
     -moz-animation: glowing 1500ms infinite;
     -o-animation: glowing 1500ms infinite;
     animation: glowing 1500ms infinite;
-  }
-  @-webkit-keyframes glowing {
+}
+
+@-webkit-keyframes glowing {
     0% { background-color: #006680; -webkit-box-shadow: 0 0 3px #006680; }
     50% { background-color: #00ccff; -webkit-box-shadow: 0 0 40px #00ccff; }
     100% { background-color: #006680; -webkit-box-shadow: 0 0 3px #006680; }
-  }
-  
-  @-moz-keyframes glowing {
+}
+
+@-moz-keyframes glowing {
     0% { background-color: #006680; -moz-box-shadow: 0 0 3px #006680; }
     50% { background-color: #00ccff; -moz-box-shadow: 0 0 40px #00ccff; }
     100% { background-color: #006680; -moz-box-shadow: 0 0 3px #006680; }
-  }
-  
-  @-o-keyframes glowing {
+}
+
+@-o-keyframes glowing {
     0% { background-color: #006680; box-shadow: 0 0 3px #006680; }
     50% { background-color:#00ccff; box-shadow: 0 0 40px #00ccff; }
     100% { background-color: #006680; box-shadow: 0 0 3px#006680; }
-  }
-  
-  @keyframes glowing {
+}
+
+@keyframes glowing {
     0% { background-color: #006680; box-shadow: 0 0 3px #006680; }
     50% { background-color: #00ccff; box-shadow: 0 0 40px #00ccff; }
     100% { background-color: #006680; box-shadow: 0 0 3px #006680; }
-  }
+}
 
 /* Cloud System */
 

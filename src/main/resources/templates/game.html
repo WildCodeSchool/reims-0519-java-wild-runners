@@ -7,7 +7,7 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/homepage.css">
+        <link rel="stylesheet" th:href="@{/homepage.css}" href="../static/homepage.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Carter+One&display=swap">
 
         <title>Wild Runners</title>
@@ -15,6 +15,44 @@
     </head>
 
     <body>
-        <h1>Hello World !!</h1>
+        <h1 class="title">C'est parti !!</h1>
+        <div class="container">
+            <!-- First Line -->
+            <div class="row">
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+            </div>
+            <!-- Second Line -->
+            <div class="row">
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                </div>
+            <!-- Third Line -->
+            <div class="row">
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                </div>
+            <!-- Fourth Line -->
+            <div class="row">
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-white"></div>
+                <div class="col-2 border bg-danger"></div>
+                <div class="col-2 border bg-white"></div>
+            </div>
+        </div>
     </body>
 </html>

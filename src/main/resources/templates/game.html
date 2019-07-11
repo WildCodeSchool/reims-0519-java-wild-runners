@@ -16,16 +16,22 @@
 
     <body>
         <h1 class="title">C'est parti !!</h1>
+        <section class="actions">
+			<span class="title"><strong th:text="${currentPlayer}">player 1</strong>,you can play :)</span>
+		</section>
         <div class="board">
             <div th:each="column : ${grid}">
                 <div th:each="cell : ${column}" th:class="${cell.isObstacle()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
             </div>
+            <div th:class="|cell player player--x${player[0]} player--y${player[1]}|" class="cell player x1 y1"></div>
         </div>
 
         <footer class="enter">
-            <a href="" type="button" class="btn btn-info btn-lg">Up</a>
-            <a href="" type="button" class="btn btn-info btn-lg">Down</a>
-            <a href="" type="button" class="btn btn-info btn-lg">Right</a>
+                <form action="/game" method="POST">
+            <input type="submit" name="move" value="Up"  class="btn btn-info btn-lg"></a>
+            <input type="submit" name="move" value="Down" class="btn btn-info btn-lg"></a>
+            <input type="submit" name="move" value="Right" class="btn btn-info btn-lg"></a>
+                </form>
         </footer>
 
         <!--Cloud System -->

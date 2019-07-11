@@ -50,6 +50,12 @@ body {
 
 .board::before {
     content: 'START';
+    font-size: 220%;
+    padding-top: 30px;
+    padding-left: 10px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
     background-color: white;
@@ -58,15 +64,22 @@ body {
     height: calc(4 * var(--cell-size));
 }
 
-/*.board::after {
+.board::after {
     content: 'FINISH';
+    font-size: 200%;
+    padding-top: 15px;
+    padding-left: 13px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
     background-color: white;
     z-index: 1;
     width: var(--cell-size);
-    height: calc(3 * var(--cell-size));
-}*/
+    height: calc(4 * var(--cell-size));
+    right: 0;
+}
 
 .cell {
     width: var(--cell-size);

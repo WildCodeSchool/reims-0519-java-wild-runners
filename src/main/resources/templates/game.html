@@ -27,11 +27,15 @@
         </div>
 
         <footer class="enter">
-                <form action="/game" method="POST">
-            <input type="submit" name="move" value="Up"  class="btn btn-info btn-lg"></a>
-            <input type="submit" name="move" value="Down" class="btn btn-info btn-lg"></a>
-            <input type="submit" name="move" value="Right" class="btn btn-info btn-lg"></a>
-                </form>
+            <form action="/game" method="POST" class="">
+                <input type="radio" id="up" name="move" value="up">
+                <label for="up">Up</label>  
+                <input type="radio" id="down" name="move" value="down">
+                <label for="down">Down</label>
+                <input type="radio" id="right" name="move" value="right">
+                <label for="right">Right</label>
+                <input type="submit" value="Move !">
+            </form>
         </footer>
 
         <!--Cloud System -->

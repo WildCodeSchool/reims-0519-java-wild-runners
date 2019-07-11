@@ -44,12 +44,18 @@ body {
     display: inline-flex;
     margin: auto;
     position: relative;
-    --cell-size: 100px;
-    border-color: black;
+    --cell-size: 75px;
+    border: medium dashed green;
 }
 
 .board::before {
     content: 'START';
+    font-size: 220%;
+    padding-top: 30px;
+    padding-left: 10px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
     background-color: white;
@@ -60,18 +66,26 @@ body {
 
 .board::after {
     content: 'FINISH';
+    font-size: 200%;
+    padding-top: 15px;
+    padding-left: 13px;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
     background-color: white;
     z-index: 1;
     width: var(--cell-size);
-    height: calc(3 * var(--cell-size));
+    height: calc(4 * var(--cell-size));
+    right: 0;
 }
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
     background-color: white;
+    border: 1px solid black;
 }
 
 .cell.obstacle {

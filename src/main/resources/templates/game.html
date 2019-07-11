@@ -20,6 +20,7 @@
             <div th:each="column : ${grid}">
                 <div th:each="cell : ${column}" th:class="${cell.isObstacle()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
             </div>
+            <div th:class="|cell player player--x${player[0]} player--y${player[1]}|" class="cell player x1 y1"></div>
         </div>
 
         <footer class="enter">

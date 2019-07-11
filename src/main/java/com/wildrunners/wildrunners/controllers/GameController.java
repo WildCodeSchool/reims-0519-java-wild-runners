@@ -19,6 +19,8 @@ public class GameController {
 
     @GetMapping("/game")
     public String game(Model model) {
+        int[] player = {2, 2};
+        model.addAttribute("player", player);
         Cell[][] grid = {
             {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
             {new Cell(" ", false), new Cell(" ", true), new Cell(" ", false), new Cell(" ", false)},

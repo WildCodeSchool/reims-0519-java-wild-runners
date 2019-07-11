@@ -16,43 +16,40 @@
 
     <body>
         <h1 class="title">C'est parti !!</h1>
-        <div class="container">
-            <!-- First Line -->
-            <div class="row">
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-            </div>
-            <!-- Second Line -->
-            <div class="row">
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                </div>
-            <!-- Third Line -->
-            <div class="row">
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                </div>
-            <!-- Fourth Line -->
-            <div class="row">
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-white"></div>
-                <div class="col-2 border bg-danger"></div>
-                <div class="col-2 border bg-white"></div>
+        <div class="board">
+            <div th:each="column : ${grid}">
+                <div th:each="cell : ${column}" th:class="${cell.isObstacle()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
             </div>
         </div>
+
+        <footer class="enter">
+            <a href="/" type="button" class="btn btn-info btn-lg">Go Home</a>
+            <!--<a href="/end" type="button" class="btn btn-info btn-lg">Go Ending</a>-->
+        </footer>
+
+        <!--Cloud System -->
+        <div id="background-wrap">
+            <div class="x1">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x2">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x3">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x4">
+                <div class="cloud"></div>
+            </div>
+
+            <div class="x5">
+                <div class="cloud"></div>
+            </div>
+        </div>
+        <!-- End Cloud System -->
+
     </body>
 </html>

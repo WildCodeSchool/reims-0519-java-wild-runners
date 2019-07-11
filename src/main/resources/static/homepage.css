@@ -19,6 +19,7 @@ body {
     display: flex;
     align-items: flex-end;
     height: 30%;
+    margin-bottom: 5%;
     justify-content: space-around;
     font-size: 150%;
     font-family: 'Carter One', cursive;
@@ -33,12 +34,48 @@ body {
 .enter {
     display: flex;
     align-items: flex-end;
-    height: 35%;
+    height: 25%;
     justify-content: space-evenly;
 }
 
-.col-2 { 
-    padding: 5%; 
+/* Board */
+
+.board {
+    display: inline-flex;
+    margin: auto;
+    position: relative;
+    --cell-size: 100px;
+    border-color: black;
+}
+
+.board::before {
+    content: 'START';
+    position: absolute;
+    display: block;
+    background-color: white;
+    z-index: 1;
+    width: var(--cell-size);
+    height: calc(4 * var(--cell-size));
+}
+
+.board::after {
+    content: 'FINISH';
+    position: absolute;
+    display: block;
+    background-color: white;
+    z-index: 1;
+    width: var(--cell-size);
+    height: calc(3 * var(--cell-size));
+}
+
+.cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-color: white;
+}
+
+.cell.obstacle {
+    background-color: red;
 }
 
 /* Glowing Button */

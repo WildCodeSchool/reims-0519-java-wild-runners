@@ -15,6 +15,7 @@ body {
     font-family: 'Carter One', cursive;
 }
 
+
 .history {
     display: flex;
     align-items: flex-end;
@@ -103,56 +104,56 @@ body {
     left: calc(1 * var(--cell-size));
 }
 .player--x2 {
-    left: calc(1 * var(--cell-size));
+    left: calc(2 * var(--cell-size));
 }
 .player--x3 {
-    left: calc(1 * var(--cell-size));
+    left: calc(3 * var(--cell-size));
 }
 .player--x4 {
-    left: calc(1 * var(--cell-size));
+    left: calc(4 * var(--cell-size));
 }
 .player--x5 {
-    left: calc(1 * var(--cell-size));
+    left: calc(5 * var(--cell-size));
 }
 .player--x6 {
-    left: calc(1 * var(--cell-size));
+    left: calc(6 * var(--cell-size));
 }
 .player--x7 {
-    left: calc(1 * var(--cell-size));
+    left: calc(7 * var(--cell-size));
 }
 .player--x8 {
-    left: calc(1 * var(--cell-size));
+    left: calc(8 * var(--cell-size));
 }
 .player--x9 {
-    left: calc(1 * var(--cell-size));
+    left: calc(9 * var(--cell-size));
 }
 .player--x10 {
-    left: calc(1 * var(--cell-size));
+    left: calc(10 * var(--cell-size));
 }
 .player--x11 {
-    left: calc(1 * var(--cell-size));
+    left: calc(11 * var(--cell-size));
 }
 .player--x12 {
-    left: calc(1 * var(--cell-size));
+    left: calc(12 * var(--cell-size));
 }
 .player--x13 {
-    left: calc(1 * var(--cell-size));
+    left: calc(13 * var(--cell-size));
 }
 .player--x14 {
-    left: calc(1 * var(--cell-size));
+    left: calc(14 * var(--cell-size));
 }
 
 .player--y1 {
     top: calc(1 * var(--cell-size));
 }
 .player--y2 {
-    top: calc(1 * var(--cell-size));
+    top: calc(2 * var(--cell-size));
 }
 .player--y3 {
-    top: calc(1 * var(--cell-size));
+    top: calc(3 * var(--cell-size));
 }
 .player--y4 {
-    top: calc(1 * var(--cell-size));
+    top: calc(4 * var(--cell-size));
 }
 
 /* Glowing Button */

@@ -44,8 +44,8 @@ body {
     display: inline-flex;
     margin: auto;
     position: relative;
-    --cell-size: 100px;
-    border-color: black;
+    --cell-size: 75px;
+    border: medium dashed green;
 }
 
 .board::before {
@@ -58,7 +58,7 @@ body {
     height: calc(4 * var(--cell-size));
 }
 
-.board::after {
+/*.board::after {
     content: 'FINISH';
     position: absolute;
     display: block;
@@ -66,12 +66,13 @@ body {
     z-index: 1;
     width: var(--cell-size);
     height: calc(3 * var(--cell-size));
-}
+}*/
 
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
     background-color: white;
+    border: 1px solid black;
 }
 
 .cell.obstacle {

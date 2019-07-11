@@ -20,9 +20,20 @@ public class GameController {
     @GetMapping("/game")
     public String game(Model model) {
         Cell[][] grid = {
-            {new Cell("l1c1", false), new Cell("l2c1", false), new Cell("l3c1", false), new Cell("l4c1", false)},
-            {new Cell("l1c2", false), new Cell("l2c2", false), new Cell("l3c2", true), new Cell("l4c2", false)},
-            {new Cell("l1c3", true), new Cell("l2c3", false), new Cell("l3c3", false), new Cell("l4c3", false)}
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", true), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", true)},
+            {new Cell(" ", true), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", true), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", true), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", true)},
+            {new Cell(" ", true), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", true), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", true), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", true)},
+            {new Cell(" ", true), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", true), new Cell(" ", false)},
+            {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)}
         };
         model.addAttribute("grid", grid);
         return "game";

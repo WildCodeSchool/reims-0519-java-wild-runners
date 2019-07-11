@@ -1,6 +1,8 @@
 package com.wildrunners.wildrunners.controllers;
 
 import com.wildrunners.wildrunners.entities.Cell;
+import com.wildrunners.wildrunners.entities.Dice;
+import com.wildrunners.wildrunners.entities.Player;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,23 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class GameController {
 
-    @GetMapping("/")
-    public String homepage() {
-        return "homepage";
-    }
+    private Cell[][] grid;
 
-    @GetMapping("/game")
-    public String game(Model model, HttpSession session) {
-        if(session.getAttribute("currentPlayer") == null) {
-            session.setAttribute("currentPlayer", 1);
-        }
-
-        model.addAttribute("currentPlayer", session.getAttribute("currentPlayer").equals(1) ? "Wilder 1" : "Wilder 2");
-
-
-        int[] player = {3, 1};
-        model.addAttribute("player", player);
-        Cell[][] grid = {
+    public GameController() {
+        this.grid = new Cell[][]{
             {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)},
             {new Cell(" ", false), new Cell(" ", true), new Cell(" ", false), new Cell(" ", false)},
             {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", true)},
@@ -45,7 +34,22 @@ public class GameController {
             {new Cell(" ", false), new Cell(" ", false), new Cell(" ", true), new Cell(" ", false)},
             {new Cell(" ", false), new Cell(" ", false), new Cell(" ", false), new Cell(" ", false)}
         };
-        model.addAttribute("grid", grid);
+    }
+
+    @GetMapping("/")
+    public String homepage() {
+        return "homepage";
+    }
+
+    @GetMapping("/game")
+    public String game(Model model, HttpSession session) {
+        if(session.getAttribute("player1") == null) {
+            session.setAttribute("player1", new Player(1, "Bryan-Stéphane-Vincent", 1, 1));
+        }
+
+        model.addAttribute("currentPlayer", session.getAttribute("player1"));
+
+        model.addAttribute("grid", this.grid);
         return "game";
     }
 
@@ -55,29 +59,32 @@ public class GameController {
     }
 
     @PostMapping("/game")
-    public String game(HttpSession session, @RequestParam(required = false) String move) {
+    public String game(HttpSession session, @RequestParam String move) {
 
-        boolean gameStatus = true;
+        boolean won = false;
 
-        if(move != null) { 
+        int moveSize = Dice.launch(3);
 
-            int currentOpponent = 2;
-            if(!session.getAttribute("currentPlayer").equals(1)) {
-                currentOpponent = 1;
-            }
+        Player player = (Player)session.getAttribute("player1");
 
-            if(gameStatus == true) {
-                session.setAttribute("currentPlayer", currentOpponent);
-            } else {
-                gameStatus = false;
+        if(move.equals("up")) {
+            for(int i = 0; i < moveSize; i++) {
+                player.setY(player.getY() - 1);
+                // est-ce que je suis sur un obstacle ?
             }
         }
+        if(move.equals("down")) {
+            player.setY(player.getY() + moveSize);
+        }
+        if(move.equals("right")) {
+            player.setX(player.getX() + moveSize);
+        }
 
-        if(gameStatus) {
-            return "redirect:/game";
+        if(won) {
+            return "redirect:/win";
         } 
         else { 
-            return "redirect:/";
+            return "redirect:/game";
         }
     }
 }

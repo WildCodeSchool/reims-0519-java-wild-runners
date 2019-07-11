@@ -17,24 +17,20 @@
     <body>
         <h1 class="title">C'est parti !!</h1>
         <section class="actions">
-			<span class="title"><strong th:text="${currentPlayer}">player 1</strong>,you can play :)</span>
+			<span class="carter"><strong th:text="${currentPlayer.name}">player 1</strong>,you can play :)</span>
 		</section>
         <div class="board">
             <div th:each="column : ${grid}">
                 <div th:each="cell : ${column}" th:class="${cell.isObstacle()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
             </div>
-            <div th:class="|cell player player--x${player[0]} player--y${player[1]}|" class="cell player x1 y1"></div>
+            <div th:class="|cell player player--x${currentPlayer.x} player--y${currentPlayer.y}|" class="cell player x1 y1"></div>
         </div>
 
         <footer class="enter">
             <form action="/game" method="POST" class="">
-                <input type="radio" id="up" name="move" value="up">
-                <label for="up">Up</label>  
-                <input type="radio" id="down" name="move" value="down">
-                <label for="down">Down</label>
-                <input type="radio" id="right" name="move" value="right">
-                <label for="right">Right</label>
-                <input type="submit" value="Move !">
+                <button type="submit" name="move" value="up">Up</button>
+                <button type="submit" name="move" value="down">Down</button>
+                <button type="submit" name="move" value="right">Right</button>
             </form>
         </footer>
 

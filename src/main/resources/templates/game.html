@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" th:href="@{/homepage.css}" href="../static/homepage.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Carter+One&display=swap">
-
-        <title>Wild Runners</title>
-
+        <link rel="stylesheet" th:href="@{/gamepage.css}" href="../static/gamepage.css">
+        
+        <title>Star Runners</title>
     </head>
-
     <body>
-        <h1 class="title">C'est parti !!</h1>
-        <section class="actions">
-			<span class="title"><strong th:text="${currentPlayer}">player 1</strong>,you can play :)</span>
+        <div id="stars-group-1"></div>
+        <div id="stars-group-2"></div>
+        <div id="stars-group-3"></div>
+        <div id="stars-group-4"></div>
+        <div id="stars-group-5"></div>
+        <div id="stars-group-6"></div>
+        <h1 class="center">C'est parti !!</h1>
+        <section>
+			<span class="center"><strong th:text="${currentPlayer}">player 1</strong>,you can play :)</span>
 		</section>
         <div class="board">
             <div th:each="column : ${grid}">
@@ -26,7 +26,7 @@
             <div th:class="|cell player player--x${player[0]} player--y${player[1]}|" class="cell player x1 y1"></div>
         </div>
 
-        <footer class="enter">
+        <footer class="center">
             <form action="/game" method="POST" class="">
                 <input type="radio" id="up" name="move" value="up">
                 <label for="up">Up</label>  
@@ -37,30 +37,5 @@
                 <input type="submit" value="Move !">
             </form>
         </footer>
-
-        <!--Cloud System -->
-        <div id="background-wrap">
-            <div class="x1">
-                <div class="cloud"></div>
-            </div>
-
-            <div class="x2">
-                <div class="cloud"></div>
-            </div>
-
-            <div class="x3">
-                <div class="cloud"></div>
-            </div>
-
-            <div class="x4">
-                <div class="cloud"></div>
-            </div>
-
-            <div class="x5">
-                <div class="cloud"></div>
-            </div>
-        </div>
-        <!-- End Cloud System -->
-
     </body>
 </html>

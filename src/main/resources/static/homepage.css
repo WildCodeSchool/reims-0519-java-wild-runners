@@ -98,8 +98,10 @@ body {
 }
 
 .player {
-    border-radius: 50%;
-    background-color:red;
+    background-image: url(SebAvatar.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
     z-index: 2;
 }

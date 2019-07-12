@@ -44,7 +44,10 @@ public class GameController {
     @GetMapping("/game")
     public String game(Model model, HttpSession session) {
         if(session.getAttribute("player1") == null) {
-            session.setAttribute("player1", new Player(1, "Bryan-Stéphane-Vincent", 0, 0));
+            session.setAttribute("player1", new Player(1, "Hello my dear", 0, 0));
+        }
+        if (session.getAttribute("dice") != null) {
+            model.addAttribute("dice", session.getAttribute("dice"));
         }
 
         model.addAttribute("currentPlayer", session.getAttribute("player1"));
@@ -54,7 +57,15 @@ public class GameController {
     }
 
     @GetMapping("/win")
-    public String win() {
+    public String win(HttpSession session) {
+        for(Cell[] column : this.grid) {
+            for(Cell cell : column) {
+                cell.setDiscovered(false);
+            }
+        }
+        Player player = (Player)session.getAttribute("player1");
+        player.setX(0);
+        player.setY(0);
         return "win";
     }
 
@@ -64,46 +75,55 @@ public class GameController {
         boolean won = false;
 
         int moveSize = Dice.launch(3);
-
+        session.setAttribute("dice", moveSize);
         Player player = (Player)session.getAttribute("player1");
 
+        boolean wasBlocked = false;
         if(move.equals("up")) {
-            for(int i = 0; i < moveSize; i++) {
-                player.setY(player.getY() - 1);
-                // est-ce que je suis sur un obstacle ?
-                if(this.grid[player.getY()][player.getX()].isObstacle()){
-                    player.setY(Math.min(player.getY() + 2, 3));
+            for(int i = 0; !wasBlocked && i < moveSize; i++) {
+                player.setY(Math.max(player.getY() - 1, 0));
+                //est-ce que je suis sur un obstacle ?
+                if(this.grid[player.getX()][player.getY()].isObstacle()){
+                    wasBlocked = true;
+                    this.grid[player.getX()][player.getY()].setDiscovered(true);
+                    player.setY(Math.min(player.getY() + 2, this.grid[0].length-1));
                 }
             }
         }
         if(move.equals("down")) {
-            for(int i = 0; i < moveSize; i++) {
-                player.setY(player.getY() + 1);
-                if(this.grid[player.getY()][player.getX()].isObstacle()){
+            for(int i = 0; !wasBlocked && i < moveSize; i++) {
+                player.setY(Math.min(player.getY() + 1, this.grid[0].length-1));
+                if(this.grid[player.getX()][player.getY()].isObstacle()){
+                    wasBlocked = true;
+                    this.grid[player.getX()][player.getY()].setDiscovered(true);
                     player.setY(Math.max(player.getY() - 2, 0));
                 }
             }
         }
         if(move.equals("right")) {
-            for(int i = 0; i < moveSize; i++) {
-                player.setX(player.getX() + 1);
-                if(this.grid[player.getY()][player.getX()].isObstacle()){
+            for(int i = 0; !wasBlocked && i < moveSize; i++) {
+                player.setX(Math.min(player.getX() + 1, this.grid.length-1));
+                if(this.grid[player.getX()][player.getY()].isObstacle()){
+                    wasBlocked = true;
+                    this.grid[player.getX()][player.getY()].setDiscovered(true);
                     player.setX(Math.max(player.getX() - 2, 0));
                 }
             }
         }
 
         if(move.equals("left")) {
-            for(int i = 0; i < moveSize; i++) {
-                player.setX(player.getX() - 1);
-                if(this.grid[player.getY()][player.getX()].isObstacle()){
-                    player.setX(Math.min(player.getX() + 2, 13));
+            for(int i = 0; !wasBlocked && i < moveSize; i++) {
+                player.setX(Math.max(player.getX() - 1, 0));
+                if(this.grid[player.getX()][player.getY()].isObstacle()){
+                    wasBlocked = true;
+                    this.grid[player.getX()][player.getY()].setDiscovered(true);
+                    player.setX(Math.min(player.getX() + 2, this.grid.length-1));
                 }
             }
         }
 
 
-        if(won) {
+        if(player.getX() >= 13) {
             return "redirect:/win";
         } 
         else { 

@@ -42,7 +42,15 @@ public class GameController {
     }
 
     @GetMapping("/game")
-    public String game(Model model, HttpSession session) {
+    public String game(Model model, HttpSession session, @RequestParam(required = false) String avatar) {
+        if(avatar == null) {
+            if(session.getAttribute("avatar") == null) {
+                session.setAttribute("avatar", "kenny");
+            }
+        }
+        else {
+            session.setAttribute("avatar", avatar);
+        }
         if(session.getAttribute("player1") == null) {
             session.setAttribute("player1", new Player(1, "Hello my dear", 0, 0));
         }
@@ -53,6 +61,7 @@ public class GameController {
         model.addAttribute("currentPlayer", session.getAttribute("player1"));
 
         model.addAttribute("grid", this.grid);
+        model.addAttribute("avatar", session.getAttribute("avatar"));
         return "game";
     }
 

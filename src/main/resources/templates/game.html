@@ -15,23 +15,26 @@
     </head>
 
     <body>
-        <h1 class="title">C'est parti !!</h1>
-        <section class="actions">
+        <h1 class="title">Let's Go !!!</h1>
+        <section>
 			<span class="carter"><strong th:text="${currentPlayer.name}">player 1</strong>,you can play :)</span>
 		</section>
         <div class="board">
             <div th:each="column : ${grid}">
-                <div th:each="cell : ${column}" th:class="${cell.isObstacle()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
+                <div th:each="cell : ${column}" th:class="${cell.isObstacle()} and ${cell.isDiscovered()} ? 'cell obstacle' : 'cell'" th:text="${cell.name}"></div>
             </div>
             <div th:class="|cell player player--x${currentPlayer.x} player--y${currentPlayer.y}|" class="cell player x1 y1"></div>
         </div>
 
-        <footer class="enter">
-            <form action="/game" method="POST" class="">
-                <button type="submit" name="move" value="up">Up</button>
-                <button type="submit" name="move" value="down">Down</button>
-                <button type="submit" name="move" value="right">Right</button>
-                <button type="submit" name="move" value="left">Left</button>
+        <div class="carter">Your dice rolled <strong th:text="${(dice)}"></strong></div>
+
+        <footer class="keyboard">
+            <form action="/game" method="POST" class="text-center">
+                <button class="btn btn-sm animated-button thar-one" type="submit" name="move" value="up">Up</button><br>
+                <button class="btn btn-sm animated-button thar-four" type="submit" name="move" value="left">Left</button>
+                <button class="btn btn-sm animated-button thar-two" type="submit" name="move" value="down">Down</button>
+                <button class="btn btn-sm animated-button thar-three" type="submit" name="move" value="right">Right</button>
+                
             </form>
         </footer>
 

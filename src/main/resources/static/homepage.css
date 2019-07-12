@@ -51,7 +51,7 @@ body {
     font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
-    background-color: white;
+    background-image: url(prairie.jpg);
     z-index: 1;
     width: var(--cell-size);
     height: calc(4 * var(--cell-size));
@@ -67,7 +67,7 @@ body {
     font-family: 'Carter One', cursive;
     position: absolute;
     display: block;
-    background-color: white;
+    background-image: url(prairie.jpg);
     z-index: 1;
     width: var(--cell-size);
     height: calc(4 * var(--cell-size));
@@ -77,17 +77,23 @@ body {
 .cell {
     width: var(--cell-size);
     height: var(--cell-size);
-    background-color: white;
+    background-image: url(prairie.jpg);
     border: 1px solid black;
 }
 
 .cell.obstacle {
-    background-color: red;
+    background-image: url(trou.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .player {
     border-radius: 50%;
     background-image: url(kenny.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     position: absolute;
     z-index: 2;
 }

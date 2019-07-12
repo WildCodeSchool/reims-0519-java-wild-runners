@@ -87,7 +87,7 @@ body {
 
 .player {
     border-radius: 50%;
-    background-color: green;
+    background-image: url(kenny.png);
     position: absolute;
     z-index: 2;
 }

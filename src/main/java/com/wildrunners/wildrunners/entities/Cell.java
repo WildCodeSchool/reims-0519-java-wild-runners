@@ -3,10 +3,12 @@ package com.wildrunners.wildrunners.entities;
 public class Cell {
     private String name;
     private boolean isObstacle;
+    private boolean isDiscovered;
 
     public Cell(String name, boolean isObstacle) {
         this.name = name;
         this.isObstacle = isObstacle;
+        this.isDiscovered = false;
     }
 
     public String getName() {
@@ -23,5 +25,13 @@ public class Cell {
 
     public void setObstacle(boolean isObstacle) {
         this.isObstacle = isObstacle;
+    }
+
+    public boolean isDiscovered() {
+        return isDiscovered;
+    }
+
+    public void setDiscovered(boolean isDiscovered) {
+        this.isDiscovered = isDiscovered;
     }
 }
